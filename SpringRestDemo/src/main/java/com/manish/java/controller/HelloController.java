@@ -18,9 +18,9 @@ public class HelloController {
 	public @ResponseBody UserDetails getAllUser() {
 		System.out.println("pathVariable called");
 		UserDetails userDetails = new UserDetails();
-		UserDetail user1 = new UserDetail("Manish1", "Srivastava");
-		UserDetail user2 = new UserDetail("Manish2", "Srivastava");
-		UserDetail user3 = new UserDetail("Manish3", "Srivastava");
+		UserDetail user1 = new UserDetail(1, "Manish1", "Srivastava");
+		UserDetail user2 = new UserDetail(2, "Manish2", "Srivastava");
+		UserDetail user3 = new UserDetail(3, "Manish3", "Srivastava");
 		userDetails.getuserDetail().add(user1);
 		userDetails.getuserDetail().add(user2);
 		userDetails.getuserDetail().add(user3);
@@ -31,7 +31,7 @@ public class HelloController {
 	@ResponseBody
 	public ResponseEntity<UserDetail> getUser(@PathVariable("id") int id) {
 		if (id <= 3) {
-			UserDetail user1 = new UserDetail("Manish1", "Srivastava");
+			UserDetail user1 = new UserDetail(1, "Manish1", "Srivastava");
 			return new ResponseEntity<UserDetail>(user1, HttpStatus.OK);
 		}
 		return new ResponseEntity<UserDetail>(HttpStatus.NOT_FOUND);

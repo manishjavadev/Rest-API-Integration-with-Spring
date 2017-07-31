@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -13,7 +14,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class UserDetail implements Serializable {
 
 	private static final long serialVersionUID = -7788619177798333712L;
-
+	@XmlAttribute
+	private Integer id;
 	@XmlElement
 	private String firstName;
 	@XmlElement
@@ -32,12 +34,27 @@ public class UserDetail implements Serializable {
 		this.lastName = lastName;
 	}
 
+	public UserDetail(Integer id, String firstName, String lastName) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
 	public UserDetail(String firstName, String lastName, String gender, String city) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;
 		this.city = city;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getFirstName() {
