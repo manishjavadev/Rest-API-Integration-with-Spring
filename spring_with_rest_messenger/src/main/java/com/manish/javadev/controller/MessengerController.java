@@ -18,22 +18,29 @@ import com.manish.javadev.service.MessengerService;
  * @author Manish
  *
  */
+/**
+ * @author Manish
+ *
+ */
 @RestController
 @RequestMapping("/messenger")
 public class MessengerController {
 
+	/* ========= Find User Detail by User Id ============= */
 	@RequestMapping(value = "/user/{userId}", method = RequestMethod.GET)
 	public ResponseEntity<UserEntity> findUserById(@PathVariable("userId") Integer userId) {
 		UserEntity userEntity = MessengerService.userInfo(userId);
 		return new ResponseEntity<UserEntity>(userEntity, HttpStatus.OK);
 	}
 
+	/* ========= Find All User Detail ============= */
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public ResponseEntity<List<UserEntity>> findUsers() {
 		List<UserEntity> userEntity = MessengerService.usersInfo();
 		return new ResponseEntity<List<UserEntity>>(userEntity, HttpStatus.OK);
 	}
 
+	/* ========= Creating a User Detail ============= */
 	@RequestMapping(value = "/user", method = RequestMethod.POST, produces = { MediaType.APPLICATION_XML_VALUE,
 			MediaType.APPLICATION_JSON_VALUE }, consumes = { MediaType.APPLICATION_XML_VALUE,
 					MediaType.APPLICATION_JSON_VALUE })
@@ -42,6 +49,7 @@ public class MessengerController {
 		return new ResponseEntity<UserEntity>(resulltUserEntity, HttpStatus.OK);
 	}
 
+	/* ========= Updating User Detail by User Id ============= */
 	@RequestMapping(value = "/user/{userId}", method = RequestMethod.PUT, produces = { MediaType.APPLICATION_XML_VALUE,
 			MediaType.APPLICATION_JSON_VALUE }, consumes = { MediaType.APPLICATION_XML_VALUE,
 					MediaType.APPLICATION_JSON_VALUE })
@@ -51,6 +59,7 @@ public class MessengerController {
 		return new ResponseEntity<UserEntity>(resulltUserEntity, HttpStatus.OK);
 	}
 
+	/* ========= Deleting User Detail by User Id ============= */
 	@RequestMapping(value = "/user/{userId}", method = RequestMethod.DELETE, produces = {
 			MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE }, consumes = {
 					MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
