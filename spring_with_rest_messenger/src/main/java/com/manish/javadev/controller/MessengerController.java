@@ -18,10 +18,6 @@ import com.manish.javadev.service.MessengerService;
  * @author Manish
  *
  */
-/**
- * @author Manish
- *
- */
 @RestController
 @RequestMapping("/messenger")
 public class MessengerController {
