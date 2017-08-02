@@ -8,6 +8,13 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Manish
  *
  */
+
+/*
+ * JAXB : Is the annotation @XmlAccessorType is only for Serialization and
+ * nothing to do with Binding of data
+ */
+/* Controls whether fields or Javabean properties are serialized by default. */
+@SuppressWarnings("restriction")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
 public class UserEntity {
